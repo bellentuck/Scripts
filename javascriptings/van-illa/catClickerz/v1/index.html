@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <title>Cat Clicker 1.1</title>
+    <style>
+      img{height:200px; width:250px;}
+      h2{text-align: center;}
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <td><h2><span id="firstName">#</span>: <span id="firstClicks">0</span></h2></td>
+        <td><h2><span id="secondName">#</span>: <span id="secondClicks">0</span></h2></td>
+      </tr>
+      <tr>
+        <td><img src="#" alt="firstPic" id="firstPic"></td>
+        <td><img src="#" alt="secondPic" id="secondPic"></td>
+      </tr>
+    </table>
+  </body>
+
+  <script type="text/javascript">
+    // cat constructor
+    var Cat = function(){
+      var name, pic;
+      return console.dir(this);
+    };
+    // presentamos los gatos
+    firstCat = new Cat;
+    firstCat.name = "Truth";
+    firstCat.pic = "https://s-media-cache-ak0.pinimg.com/originals/6a/22/9d/6a229d0f7413b4cc308559a926e5a3d7.jpg";
+    secondCat = new Cat;
+    secondCat.name = "Justice";
+    secondCat.pic = "http://t1.uccdn.com/pt/images/7/6/7/img_como_saber_a_raca_do_meu_gato_8767_300.jpg";
+    // set DOM elements and attributes
+    (function(){
+    document.getElementById("firstName").firstChild.nodeValue = firstCat.name;
+    document.getElementById("firstPic").setAttribute('src', firstCat.pic);
+    document.getElementById("secondName").firstChild.nodeValue = secondCat.name;
+    document.getElementById("secondPic").setAttribute('src', secondCat.pic);
+    })();
+
+    // upClick(): functions incrementing "clicks"
+    function upClick1() {
+      var clicks = document.getElementById("firstClicks");
+      clicks.firstChild.nodeValue = parseInt(clicks.firstChild.nodeValue)+1;
+    };
+    function upClick2() {
+      var clicks = document.getElementById("secondClicks");
+      clicks.firstChild.nodeValue = parseInt(clicks.firstChild.nodeValue)+1;
+    };
+
+    // calling upClick():
+    var firstPic = document.getElementById("firstPic");
+    var secondPic = document.getElementById("secondPic");
+    firstPic.addEventListener("click", upClick1, false);
+    secondPic.addEventListener("click", upClick2, false);
+
+    //older:
+    // event-dependent call to upClick(): call upClick() when a cat gets clicked for that cat's clickID. Do whatever upClick() does when Cat.pic gets clicked.
+    // var cat = document.getElementById("cat");
+    // cat.addEventListener("click", upClick, false);
+    //unclear why that last param is necessary.
+
+    //optimizations?
+    // // cat generator(?)
+    // var howManyCats = 2;
+    // then automate rest
+    // // make upClick a mutual function for cats
+    // Cat.prototype.upClick = upClick;
+  </script>
+
+
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+
+</html>
